@@ -36,7 +36,7 @@ function App() {
                        collapsed={accordionCollapsed}
                        onChange={() => setAccordionCollapsed(!accordionCollapsed)}
                        onClick={(id) => alert(`user with ID ${id} said hey`)}/>
-            {/* <UncontrolledAccordion titleValue={'Users'}/>*/}
+             <UncontrolledAccordion titleValue={'Users'}/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             {/* <UncontrolledRating/>*/}
             {/* <div><input onChange={(e) => {
