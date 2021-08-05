@@ -11,7 +11,7 @@ type SelectPropsType = {
     items: ItemType[]
 }
 
-export const Select = (props: SelectPropsType) => {
+export const SelectSecret = (props: SelectPropsType) => {
     const [active, setActive] = useState(false)
     const [hoveredItemValue, setHoveredItemValue] = useState(props.value)
     const selectedItem = props.items.find(i => i.value === props.value)

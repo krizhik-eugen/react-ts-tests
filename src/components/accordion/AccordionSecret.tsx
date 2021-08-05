@@ -13,7 +13,7 @@ type AccordionPropsType = {
     onClick: (value: any) => void
 }
 
-export function Accordion(props: AccordionPropsType) {
+export function AccordionSecret(props: AccordionPropsType) {
     return (
         <div>
             <AccordionTitle title={props.titleValue} onChange={props.onChange}/>

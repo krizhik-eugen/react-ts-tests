@@ -1,7 +1,7 @@
 import React, {useState, ChangeEvent} from 'react';
 
 
-export const ControlledInput = () => {
+export const ControlledInputSecret = () => {
     const [parentValue, setParentValue] = useState('')
     const onChange = ((event: ChangeEvent<HTMLInputElement>) => setParentValue(event.currentTarget.value))
     return (
@@ -11,7 +11,7 @@ export const ControlledInput = () => {
     )
 }
 
-export const ControlledCheckbox = () => {
+export const ControlledCheckboxSecret = () => {
     const [parentValue, setParentValue] = useState(true)
     const onChange = ((event: ChangeEvent<HTMLInputElement>) => setParentValue(event.currentTarget.checked))
     return (
@@ -21,7 +21,7 @@ export const ControlledCheckbox = () => {
     )
 }
 
-export const ControlledSelect = () => {
+export const ControlledSelectSecret = () => {
     const [parentValue, setParentValue] = useState<string | undefined>(undefined)
     const onChange = ((event: ChangeEvent<HTMLSelectElement>) => setParentValue(event.currentTarget.value))
     return (

@@ -1,24 +1,32 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Accordion} from "./components/accordion/Accordion";
-import {Rating, RatingValueType} from "./components/rating/Rating";
+import {AccordionSecret} from "./components/accordion/AccordionSecret";
+import {RatingSecret, RatingValueType} from "./components/rating/RatingSecret";
 import {UncontrolledOnOff} from "./components/uncontrolledOnOff/UncontrolledOnOff";
-import {UncontrolledAccordion} from "./components/uncontrolledAccordion/UncontrolledAccordion";
+import {UncontrolledAccordionSecret} from "./components/uncontrolledAccordion/UncontrolledAccordionSecret";
 import {UncontrolledRating} from "./components/uncontrolledRating/UncontrolledRating";
-import {OnOff} from "./components/onOff/OnOff";
+import {OnOffSecret} from "./components/onOff/OnOffSecret";
 import {
-    ControlledCheckbox,
-    ControlledInput,
-    ControlledSelect
+    ControlledCheckboxSecret, ControlledInputSecret,
+    ControlledSelectSecret
 } from "./components/inputCheckboxSelect/InputCheckboxSelect";
-import {Select} from "./components/select/Select";
+import {SelectSecret} from "./components/select/SelectSecret";
+
+const Accordion = React.memo(AccordionSecret)
+const OnOff = React.memo(OnOffSecret)
+const Rating = React.memo(RatingSecret)
+const Select = React.memo(SelectSecret)
+const UncontrolledAccordion = React.memo(UncontrolledAccordionSecret)
+const ControlledInput = React.memo(ControlledInputSecret)
+const ControlledCheckbox = React.memo(ControlledCheckboxSecret)
+const ControlledSelect = React.memo(ControlledSelectSecret)
 
 function App() {
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     let [on, setOn] = useState<boolean>(true)
-    let [inputValueControlled, setInputValueControlled] = useState('')
+/*    let [inputValueControlled, setInputValueControlled] = useState('')*/
     let [selectValue1, setSelectValue1] = useState('2')
     let [selectValue2, setSelectValue2] = useState(null)
 
@@ -36,7 +44,7 @@ function App() {
                        collapsed={accordionCollapsed}
                        onChange={() => setAccordionCollapsed(!accordionCollapsed)}
                        onClick={(id) => alert(`user with ID ${id} said hey`)}/>
-             <UncontrolledAccordion titleValue={'Users'}/>
+            <UncontrolledAccordion titleValue={'Users'}/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             {/* <UncontrolledRating/>*/}
             {/* <div><input onChange={(e) => {
@@ -49,24 +57,24 @@ function App() {
             {/* <PageTitle title={'This is APP component'}/>
             <PageTitle title={'My friends'}/>
             Article 1
-            <Rating value={3}/>
-            <Accordion titleValue={'Menu'} collapsed={true}/>
-            <Accordion titleValue={'Users'} collapsed={false}/>
+            <RatingSecret value={3}/>
+            <AccordionSecret titleValue={'Menu'} collapsed={true}/>
+            <AccordionSecret titleValue={'Users'} collapsed={false}/>
             Article 2
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>*/}
+            <RatingSecret value={0}/>
+            <RatingSecret value={1}/>
+            <RatingSecret value={2}/>
+            <RatingSecret value={3}/>
+            <RatingSecret value={4}/>
+            <RatingSecret value={5}/>*/}
             <Select value={selectValue1} onChange={setSelectValue1} items={[
                 {value: '1', title: 'Minsk'},
-                {value: '2', title: 'Mocsow'},
+                {value: '2', title: 'Mosсow'},
                 {value: '3', title: 'Kiev'}]}/>
 
             <Select value={selectValue2} onChange={setSelectValue2} items={[
                 {value: '1', title: 'Minsk'},
-                {value: '2', title: 'Mocsow'},
+                {value: '2', title: 'Mosсow'},
                 {value: '3', title: 'Kiev'}]}/>
         </div>
 
@@ -76,6 +84,7 @@ function App() {
 type PageTitlePropsType = {
     title: string
 }
+
 function PageTitle(props: PageTitlePropsType) {
     return <h1>{props.title}</h1>
 }

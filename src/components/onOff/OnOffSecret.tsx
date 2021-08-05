@@ -5,7 +5,7 @@ export type OnOffType = {
     onClick: (on: boolean) => void
 }
 
-export function OnOff(props: OnOffType) {
+export function OnOffSecret(props: OnOffType) {
 
     const onStyle = {
         border: '1px solid black',
