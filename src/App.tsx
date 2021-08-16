@@ -11,11 +11,13 @@ import {
     ControlledSelectSecret
 } from "./components/inputCheckboxSelect/InputCheckboxSelect";
 import {SelectSecret} from "./components/select/SelectSecret";
+import {UseMemoDifficultCounting} from "./components/useMemoTest/useMemoTest";
+import {SelectUseMemoTest} from "./components/select/SelectUseMemoTest";
 
 const Accordion = React.memo(AccordionSecret)
 const OnOff = React.memo(OnOffSecret)
 const Rating = React.memo(RatingSecret)
-const Select = React.memo(SelectSecret)
+export const Select = React.memo(SelectSecret)
 const UncontrolledAccordion = React.memo(UncontrolledAccordionSecret)
 const ControlledInput = React.memo(ControlledInputSecret)
 const ControlledCheckbox = React.memo(ControlledCheckboxSecret)
@@ -32,10 +34,10 @@ function App() {
 
     return (
         <div className={'app'}>
-            <OnOff on={on} onClick={setOn}/>
-            {/*
+           {/* <OnOff on={on} onClick={setOn}/>
+
             <UncontrolledOnOff/>
-*/}
+
             <Accordion titleValue={'Menu'}
                        items={[{title: 'Eugen', value: 1}, {title: 'Margo', value: 2}, {
                            title: 'Nata',
@@ -46,15 +48,15 @@ function App() {
                        onClick={(id) => alert(`user with ID ${id} said hey`)}/>
             <UncontrolledAccordion titleValue={'Users'}/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
-            {/* <UncontrolledRating/>*/}
-            {/* <div><input onChange={(e) => {
+             <UncontrolledRating/>
+             <div><input onChange={(e) => {
                 inputValueControlled = e.currentTarget.value
             } }  /><button onClick={()=> setInputValueControlled(inputValueControlled)}>save</button>{inputValueControlled}</div>
-*/}
+
             <ControlledInput/>
             <ControlledCheckbox/>
             <ControlledSelect/>
-            {/* <PageTitle title={'This is APP component'}/>
+             <PageTitle title={'This is APP component'}/>
             <PageTitle title={'My friends'}/>
             Article 1
             <RatingSecret value={3}/>
@@ -66,16 +68,23 @@ function App() {
             <RatingSecret value={2}/>
             <RatingSecret value={3}/>
             <RatingSecret value={4}/>
-            <RatingSecret value={5}/>*/}
+            <RatingSecret value={5}/>
             <Select value={selectValue1} onChange={setSelectValue1} items={[
                 {value: '1', title: 'Minsk'},
                 {value: '2', title: 'Mosсow'},
                 {value: '3', title: 'Kiev'}]}/>
-
             <Select value={selectValue2} onChange={setSelectValue2} items={[
                 {value: '1', title: 'Minsk'},
                 {value: '2', title: 'Mosсow'},
                 {value: '3', title: 'Kiev'}]}/>
+
+            <UseMemoDifficultCounting/>
+
+*/}
+            <hr/>
+
+            <SelectUseMemoTest/>
+
         </div>
 
     );

@@ -1,5 +1,6 @@
 import React, {KeyboardEvent, useEffect, useState} from "react";
 import s from './Select.module.css'
+import {CityType} from "./SelectUseMemoTest";
 
 type ItemType = {
     title: string
@@ -12,6 +13,7 @@ type SelectPropsType = {
 }
 
 export const SelectSecret = (props: SelectPropsType) => {
+    console.log('select rendering')
     const [active, setActive] = useState(false)
     const [hoveredItemValue, setHoveredItemValue] = useState(props.value)
     const selectedItem = props.items.find(i => i.value === props.value)
