@@ -13,6 +13,7 @@ import {
 import {SelectSecret} from "./components/select/SelectSecret";
 import {UseMemoDifficultCounting} from "./components/useMemoTest/useMemoTest";
 import {SelectUseMemoTest} from "./components/select/SelectUseMemoTest";
+import {Clock} from "./components/clock/Clock";
 
 const Accordion = React.memo(AccordionSecret)
 const OnOff = React.memo(OnOffSecret)
@@ -28,13 +29,13 @@ function App() {
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     let [on, setOn] = useState<boolean>(true)
-/*    let [inputValueControlled, setInputValueControlled] = useState('')*/
+    /*    let [inputValueControlled, setInputValueControlled] = useState('')*/
     let [selectValue1, setSelectValue1] = useState('2')
     let [selectValue2, setSelectValue2] = useState(null)
 
     return (
         <div className={'app'}>
-           {/* <OnOff on={on} onClick={setOn}/>
+            {/* <OnOff on={on} onClick={setOn}/>
 
             <UncontrolledOnOff/>
 
@@ -84,6 +85,9 @@ function App() {
             <hr/>
 
             <SelectUseMemoTest/>
+
+            <hr/>
+            <Clock/>
 
         </div>
 
