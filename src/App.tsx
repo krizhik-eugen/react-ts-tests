@@ -14,6 +14,7 @@ import {SelectSecret} from "./components/select/SelectSecret";
 import {UseMemoDifficultCounting} from "./components/useMemoTest/useMemoTest";
 import {SelectUseMemoTest} from "./components/select/SelectUseMemoTest";
 import {Clock} from "./components/clock/Clock";
+import {ResetEffect} from "./components/ResetEffect/ResetEffect";
 
 const Accordion = React.memo(AccordionSecret)
 const OnOff = React.memo(OnOffSecret)
@@ -84,10 +85,14 @@ function App() {
 */}
             <hr/>
 
-            <SelectUseMemoTest/>
+            {/*<SelectUseMemoTest/>*/}
 
             <hr/>
-            <Clock/>
+            {/*<Clock/>*/}
+
+            <hr/>
+
+            <ResetEffect/>
 
         </div>
 
