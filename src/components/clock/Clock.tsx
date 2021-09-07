@@ -1,21 +1,24 @@
 import React, {useEffect, useState} from 'react';
+import s from './Clock.module.css'
 
 // @ts-ignore
-import AnalogClock from 'analog-clock-react'
+import AnalogueClock from 'react-analogue-clock'
 
-let options = {
-    width: "200px",
-    border: true,
-    borderColor: "#2e2e2e",
-    baseColor: "#17a2b8",
-    centerColor: "#459cff",
-    centerBorderColor: "#fff",
+const clockOptions = {
+    baseColor: '#ffffff',
+    borderColor: '#000000',
+    borderWidth: 5,
+    centerColor: '#000000',
     handColors: {
-        second: "#d81c7a",
-        minute: "#fff",
-        hour: "#fff"
-    }
-};
+        hour: '#000000',
+        minute: '#000000',
+        second: '#000000',
+    },
+    notchColor: '#000000',
+    numbersColor: '#000000',
+    showNumbers: true,
+    size: 200
+}
 
 type PropsType = {}
 const newTimeValuesWith2Digits = (t: number) => t < 10 ? '0' + t : t
@@ -24,6 +27,8 @@ export const Clock: React.FC<PropsType> = (props) => {
 
     const [date, setDate] = useState(new Date())
 
+    const [analogTime, setAnalogTime] = useState(true)
+
     useEffect(() => {
         const intervalId = setInterval(() => {
             setDate(new Date())
@@ -31,20 +36,20 @@ export const Clock: React.FC<PropsType> = (props) => {
         return () => {
             clearInterval(intervalId)
         }
-
-
     }, [])
 
     return (
-        <div>
-            <AnalogClock {...options}/>
-            <div>
+        <div className={s.clockBlock}>
+            {analogTime ? <button onClick={() => setAnalogTime(false)}>Digital Clock View</button>
+                : <button onClick={() => setAnalogTime(true)}>Analog Clock View</button>}
+
+            {analogTime ? <AnalogueClock {...clockOptions} /> : <div className={s.digitalClockBlock}>
                 <span>{newTimeValuesWith2Digits(date.getHours())}</span>
                 :
                 <span>{newTimeValuesWith2Digits(date.getMinutes())}</span>
                 :
                 <span>{newTimeValuesWith2Digits(date.getSeconds())}</span>
-            </div>
+            </div>}
         </div>
     )
 }
